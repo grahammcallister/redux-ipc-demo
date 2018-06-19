@@ -1,0 +1,37 @@
+<html>
+<body>
+    <h1>Redux state management demo</h1>
+    <script>
+            const {remote} = require('electron');
+            console.log(remote);
+
+            var mainStore = remote.getGlobal('store');
+
+            console.log('In renderer ' + mainStore);
+    
+            var addToken = () => {
+                console.log(mainStore);
+                mainStore.dispatch({
+                    type: 'AUTH_TOKEN_ADDED',
+                    token: '123456-7890-0987-654321321'
+                });
+                let tokenId = document.getElementById('token');
+                let added = document.createElement('div');
+                let text = document.createTextNode('Token added');
+                tokenId.appendChild(added);
+                added.appendChild(text);
+            }
+    
+            var expireToken = () => {
+                let tokenId = document.getElementById('token');
+                let expired = document.createElement('div');
+                let text = document.createTextNode('Token expired');
+                tokenId.appendChild(expired);
+                expired.appendChild(text);
+            }
+        </script>
+    <button onClick="addToken()">Add token</button>
+    <button onClick="expireToken()">Expire token</button>
+    <span id="token"></span>
+</body>
+</html>

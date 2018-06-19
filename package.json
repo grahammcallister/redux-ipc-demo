@@ -1,0 +1,17 @@
+{
+  "name": "cc-shell-redux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "electron": "electron ./index.js"
+  },
+  "author": "Graham",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^2.0.2"
+  },
+  "dependencies": {
+    "redux": "^4.0.0"
+  }
+}
